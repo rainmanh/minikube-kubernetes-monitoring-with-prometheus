@@ -1,0 +1,26 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: node-exporter
+  labels:
+    k8s-app: node-exporter
+spec:
+  jobLabel: k8s-app
+  selector:
+    matchLabels:
+      k8s-app: node-exporter
+  namespaceSelector:
+    matchNames:
+    - default
+  endpoints:
+  - port: https
+    scheme: https
+    interval: 30s
+    tlsConfig:
+      insecureSkipVerify: true
+      caFile: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+    bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+    relabelings:
+      - targetLabel: "__address__"
+        replacement: "kubernetes.default.svc:443"
+
