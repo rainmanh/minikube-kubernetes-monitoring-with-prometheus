@@ -17,6 +17,11 @@ minikube version: v1.10.1
 commit: 63ab801ac27e5742ae442ce36dff7877dcccb278
 ```
 
+For Minikube don't forget the following:
+
+ * Enable the metrics-server: `minikube addons enable metrics-server`
+ * Launch cdavisor: `minikube start --extra-config=kubelet.CAdvisorPort=4194`
+
 ## Source
 
  * https://www.linkedin.com/learning/kubernetes-monitoring-with-prometheus
