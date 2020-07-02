@@ -1,14 +1,13 @@
-kind: ConfigMap
-apiVersion: v1
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
 metadata:
   name: example-app-rules
   labels:
     role: prometheus-rulefiles
     prometheus: prometheus
-data:
-  app.rules.yaml: |+
-    groups:
-    - name: ./app.rules
-      rules:
-      - alert: App Alert
-        expr: sum(demo_api_http_requests_in_progress) > 3
+spec:
+  groups:
+  - name: ./app.rules
+    rules:
+    - alert: App Alert
+      expr: sum(demo_api_http_requests_in_progress) > 3

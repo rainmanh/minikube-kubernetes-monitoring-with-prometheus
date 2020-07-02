@@ -19,8 +19,19 @@ commit: 63ab801ac27e5742ae442ce36dff7877dcccb278
 
 For Minikube don't forget the following:
 
- * Enable the metrics-server: `minikube addons enable metrics-server`
  * Launch cdavisor: `minikube start --extra-config=kubelet.CAdvisorPort=4194`
+
+## Pre-requisites
+
+You need first to install CoreOS Prometheus API Operator.
+
+* https://github.com/coreos/kube-prometheus.git
+
+```
+kubectl apply -f kube-prometheus/manifests/setup
+```
+
+Note all this has been mostly migrated into HELM, nevertheless for the purpose of this Demo/Training this is good enough...
 
 ## Source
 
