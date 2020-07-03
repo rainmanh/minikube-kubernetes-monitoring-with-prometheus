@@ -2,6 +2,8 @@
 
 This is the updated code for the Training Course in LinkedIn `Kubernetes Monitoring With Prometheus`
 
+https://www.linkedin.com/learning/kubernetes-monitoring-with-prometheus/creating-alerts-in-prometheus?u=2113185
+
 this code has been apdated for Minikube using the latest existing versions at date of June - 2020
 So that would be using :
 
